@@ -1,0 +1,35 @@
+[dataset]
+dataset = "imagenet-1k"
+
+[model]
+hidden_dim = 768
+patch_size = 16 
+num_blocks = 12
+heads = 12
+head_dim = 64
+dropout = 0.1
+
+[training]
+batch_size = 32
+num_workers = 4
+pin_memory = true
+num_epochs = 100
+
+image_height = 224
+image_width = 224
+
+lr = 0.001
+warmup_epochs = 10
+warmup_start_factor = 0.001
+min_lr = 0.000001
+adam_beta1 = 0.9
+adam_beta2 = 0.999
+
+use_torch_compile = true
+mixed_precision = "bf16"
+
+random_seed = 0
+
+[evaluation]
+checkpoint_dir = "./checkpoints"
+save_checkpoint_interval = 5
